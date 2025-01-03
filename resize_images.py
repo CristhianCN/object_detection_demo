@@ -21,7 +21,7 @@ if __name__ == "__main__":
         type=str,
     )
     parser.add_argument(
-        "--ext", help="Raw image files extension to resize.", default="jpg", type=str
+        "--ext", help="Raw image files extension to resize.", default="jpeg", type=str
     )
     parser.add_argument(
         "--target-size",
@@ -38,6 +38,7 @@ if __name__ == "__main__":
     msg = "--target-size must be a tuple of 2 integers"
     assert isinstance(target_size, tuple) and len(target_size) == 2, msg
     fnames = glob.glob(os.path.join(raw_dir, "*.{}".format(ext)))
+    print(fnames)
     os.makedirs(save_dir, exist_ok=True)
     print(
         "{} files to resize from directory `{}` to target size:{}".format(
